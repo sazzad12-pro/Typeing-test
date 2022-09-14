@@ -16,6 +16,7 @@ fetch("./texts.json")
   .then((res) => res.json())
   .then((data) => {
     questionText = data[Math.floor(Math.random() * data.length)];
+
     question.innerHTML = questionText;
   });
 
@@ -41,7 +42,9 @@ const typeController = (e) => {
   userText += newLetter;
 
   const newLetterCorrect = validate(newLetter);
-
+  if (!newLetterCorrect) {
+    errorCount++;
+  }
   if (newLetterCorrect) {
     display.innerHTML += `<span class="green">${
       newLetter === " " ? "▪" : newLetter
@@ -71,7 +74,7 @@ const gameOver = () => {
   // the current time is the finish time
   // so total time taken is current time - start time
   const finishTime = new Date().getTime();
-  const timeTaken = (finishTime - startTime) / 1000;
+  const timeTaken = parseInt((finishTime - startTime) / 1000);
 
   // show result modal
   resultModal.innerHTML = "";
@@ -111,20 +114,18 @@ const start = () => {
   countdownOverlay.style.display = "flex";
 
   const startCountdown = setInterval(() => {
+    startTime = new Date().getTime();
     countdownOverlay.innerHTML = `<h1>${count}</h1>`;
-
     // finished timer
     if (count == 0) {
       // -------------- START TYPING -----------------
       document.addEventListener("keydown", typeController);
-      countdownOverlay.style.display = "flex";
+      countdownOverlay.style.display = "none";
       display.classList.remove("inactive");
-
       clearInterval(startCountdown);
-      startTime = new Date().getTime();
     }
     count--;
-  }, 1000);
+  }, 500);
 };
 
 // START Countdown
@@ -136,7 +137,7 @@ displayHistory();
 // Show typing time spent
 setInterval(() => {
   const currentTime = new Date().getTime();
-  const timeSpent = (currentTime - startTime) / 1000;
+  const timeSpent = parseInt((currentTime - startTime) / 1000);
 
   document.getElementById("show-time").innerHTML = `${
     startTime ? timeSpent : 0
