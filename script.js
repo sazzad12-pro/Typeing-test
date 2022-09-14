@@ -45,6 +45,7 @@ const typeController = (e) => {
   if (!newLetterCorrect) {
     errorCount++;
   }
+
   if (newLetterCorrect) {
     display.innerHTML += `<span class="green">${
       newLetter === " " ? "▪" : newLetter
