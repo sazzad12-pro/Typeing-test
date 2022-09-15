@@ -144,3 +144,8 @@ setInterval(() => {
     startTime ? timeSpent : 0
   } seconds`;
 }, 1000);
+
+// move one blog
+const moveOneBtn = () => {
+  window.location.href = "blog.html";
+};
