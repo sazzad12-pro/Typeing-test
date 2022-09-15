@@ -28,7 +28,7 @@
                 aria-expanded="true"
                 aria-controls="collapseOne"
               >
-                Accordion Item #1
+                LocalStorage এবং seasionStorage মধ্যে পার্থক্য কি?
               </button>
             </h2>
             <div
@@ -38,15 +38,15 @@
               data-bs-parent="#accordionExample"
             >
               <div class="accordion-body">
-                <strong>This is the first item's accordion body.</strong> It is
-                shown by default, until the collapse plugin adds the appropriate
-                classes that we use to style each element. These classes control
-                the overall appearance, as well as the showing and hiding via
-                CSS transitions. You can modify any of this with custom CSS or
-                overriding our default variables. It's also worth noting that
-                just about any HTML can go within the
-                <code>.accordion-body</code>, though the transition does limit
-                overflow.
+                ওয়েবসাইটে ইন্সপেকট নামে অপশন আপ্লিকেসন নামে ট্যাব এ cookie মধ্যে
+                দুটো storage নামে সেসন আছে । তার মধ্যে একটা LocalStorage এবং
+                অপরটা seasionStorage । LocalStorage এবং seasionStorage দুই
+                যাইগায় আমি কিছু ডাটা সেট করতে পারব । কিন্তু seasionStorage ডাটা
+                একবার ট্যাব ক্লোজ করলে বা ব্রাউজার বন্ধ করলে seasionStorage কখন
+                ডাটা সেভ করতে পারে না । আর LocalStorage এ ডাটা একবার সেট আইটেম
+                করলে ট্যাব ক্লোজ বা ব্রাউজার বন্ধ করলেও পুনরাই ওপেন করলেও সেই
+                ডাটা ui টে দেখানো যায়। আমরা প্রধানত ইউজার কে ডাটা দেখানো জন্য
+                LocalStorage বেবহার করব ।
               </div>
             </div>
           </div>
